@@ -40,7 +40,11 @@ guessesDiv.textContent = "Letters Already Guessed: ";
     for (let i = 0; i < randomWord.length; i++) {
         if (upUserGuess === randomWord[i]) {
             console.log("good one!");
-            
+
+            // DISPLAY REVEALED LETTERS
+            var revealedWordDiv = document.getElementById("currentWord-div");
+            revealedWordDiv.textContent = randomWord.replace(/[a-zA-Z]/g, '-');
+
         } else {
             console.log("nope");
         }
