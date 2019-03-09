@@ -7,11 +7,19 @@ var words = ["BLOFELD", "ODDJOB", "SPECTRE", "DALTON", "LICENSE", "VESPER", "SKY
 
 // APP RANDOMLY PICKS A WORD
 var randomWord = words[Math.floor(Math.random() * words.length)];
-console.log(randomWord);
+// console.log(randomWord);
+
+wordArray = randomWord.split('')
+console.log(wordArray);
+
+var hyphenatedWord = randomWord.replace(/[a-zA-Z]/g, '-');
 
 //DISPLAY HYPHENATED WORD
 var tempHyphenatedWordDiv = document.getElementById("currentWord-div");
-tempHyphenatedWordDiv.textContent = randomWord.replace(/[a-zA-Z]/g, '-');
+tempHyphenatedWordDiv.textContent = hyphenatedWord;
+
+hyphenatedArray = hyphenatedWord.split('');
+console.log(hyphenatedArray);
 
 // DISPLAY THE GUESSES LEFT COUNTER
 var guessesLeftDiv = document.getElementById("guessesLeft-div");
@@ -37,15 +45,22 @@ guessesDiv.textContent = "Letters Already Guessed: ";
     guessesDiv.textContent = "Your Guesses so far: " + guesses;
 
     // CHECK THE RANDOM WORD FOR A CHARACTER MATCH
-    for (let i = 0; i < randomWord.length; i++) {
-        if (upUserGuess === randomWord[i]) {
+    for (let i = 0; i < wordArray.length; i++) {
+        if (upUserGuess === wordArray[i]) {
             console.log("good one!");
 
+            hyphenatedArray[i] = randomWord[i];
+
+            console.log('update: ' + hyphenatedArray);
+
             // DISPLAY REVEALED LETTERS
-            var revealedWordDiv = document.getElementById("currentWord-div");
-            revealedWordDiv.textContent = randomWord.replace(/[a-zA-Z]/g, '-');
+            var newtempHyphenatedWordDiv = document.getElementById("currentWord-div");
+            newtempHyphenatedWordDiv.textContent = hyphenatedArray;
+
 
         } else {
+            // hyphenatedArray[i] = '-';
+            
             console.log("nope");
         }
     }
