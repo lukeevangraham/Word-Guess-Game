@@ -1,5 +1,6 @@
 guessesLeft = 12;
 guesses = [];
+wins = 0;
 
 
 // LIST OF POSSIBLE WORDS
@@ -7,7 +8,6 @@ var words = ["BLOFELD", "ODDJOB", "SPECTRE", "DALTON", "LICENSE", "VESPER", "SKY
 
 // APP RANDOMLY PICKS A WORD
 var randomWord = words[Math.floor(Math.random() * words.length)];
-// console.log(randomWord);
 
 wordArray = randomWord.split('')
 console.log(wordArray);
@@ -35,9 +35,6 @@ guessesDiv.textContent = "Letters Already Guessed: ";
     document.onkeyup = function(event) {
     var userGuess = event.key;
     var upUserGuess = userGuess.toUpperCase();
-
-    console.log(upUserGuess);
-    console.log(guesses)
     
     // CONFIRM LETTER HAS NOT BEEN GUESSED
         var newGuess = guesses.includes(upUserGuess);
