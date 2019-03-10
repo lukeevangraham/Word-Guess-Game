@@ -24,7 +24,6 @@ var words = ["BLOFELD", "ODDJOB", "SPECTRE", "DALTON", "LICENSE", "VESPER", "SKY
 var randomWord = words[Math.floor(Math.random() * words.length)];
 
 wordArray = randomWord.split('')
-console.log(wordArray);
 
 var hyphenatedWord = randomWord.replace(/[a-zA-Z]/g, '-');
 
@@ -33,7 +32,6 @@ var tempHyphenatedWordDiv = document.getElementById("currentWord-div");
 tempHyphenatedWordDiv.textContent = hyphenatedWord;
 
 hyphenatedArray = hyphenatedWord.split('');
-console.log(hyphenatedArray);
 
 // DISPLAY THE WINS COUNTER
 var winsDiv = document.getElementById("wins-div");
