@@ -21,13 +21,17 @@ tempHyphenatedWordDiv.textContent = hyphenatedWord;
 hyphenatedArray = hyphenatedWord.split('');
 console.log(hyphenatedArray);
 
+// DISPLAY THE WINS COUNTER
+var winsDiv = document.getElementById("wins-div");
+winsDiv.textContent = "Wins: " + wins;
+
 // DISPLAY THE GUESSES LEFT COUNTER
 var guessesLeftDiv = document.getElementById("guessesLeft-div");
 guessesLeftDiv.textContent = "Guesses Left: " + guessesLeft;
 
 // DISPLAY THE CURRENT GUESSES
 var guessesDiv = document.getElementById("guesses-div");
-guessesDiv.textContent = "Letters Already Guessed: ";
+guessesDiv.textContent = "Your Guesses so far: ";
 
 // USER GUESSES LETTERS IN THE RANDOM WORD
 
@@ -63,12 +67,19 @@ guessesDiv.textContent = "Letters Already Guessed: ";
                     // DISPLAY REVEALED LETTERS
                     var newtempHyphenatedWordDiv = document.getElementById("currentWord-div");
                     newtempHyphenatedWordDiv.textContent = hyphenatedArray.join(" ");
+
+                    // IF HYPHENATED ARRAY RUNS OUT OF HYPHENS
+                    var hyphenCheck = hyphenatedArray.includes("-");
+                    if (hyphenCheck === false) {
+                        wins++;
+                        winsDiv.textContent = "Wins: " + wins;
+                    }
                     
                     
                 } else {
                     // hyphenatedArray[i] = '-';
                     
-                    console.log("nope");
+                    // console.log("nope");
                 }
             }
         }
