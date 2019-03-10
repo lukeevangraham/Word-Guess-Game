@@ -1,6 +1,17 @@
-guessesLeft = 12;
+var guessesLeft;
 guesses = [];
 wins = 0;
+var randomWord;
+wordArray = [];
+var hyphenatedWord;
+hyphenatedArray = [];
+var tempHyphenatedWordDiv = document.getElementById("currentWord-div");
+var winsDiv = document.getElementById("wins-div");
+var guessesLeftDiv = document.getElementById("guessesLeft-div");
+var guessesDiv = document.getElementById("guesses-div");
+
+// LIST OF POSSIBLE WORDS
+var words = ["BLOFELD", "ODDJOB", "SPECTRE", "DALTON", "LICENSE", "VESPER", "SKYFALL", "GOLDFINGER", "MONEYPENNY"];
 
 function resetGame() {
     guessesLeft = 12;
@@ -13,40 +24,35 @@ function resetGame() {
     guessesLeftDiv.textContent = "Guesses Left: " + guessesLeft;
     guessesDiv.textContent = "Your Guesses so far: ";
     console.log(randomWord);
-    
 }
 
-
-// LIST OF POSSIBLE WORDS
-var words = ["BLOFELD", "ODDJOB", "SPECTRE", "DALTON", "LICENSE", "VESPER", "SKYFALL", "GOLDFINGER", "MONEYPENNY"];
-
 // APP RANDOMLY PICKS A WORD
-var randomWord = words[Math.floor(Math.random() * words.length)];
+// var randomWord = words[Math.floor(Math.random() * words.length)];
 
-wordArray = randomWord.split('')
-console.log(wordArray);
+// wordArray = randomWord.split('')
 
-var hyphenatedWord = randomWord.replace(/[a-zA-Z]/g, '_');
+// var hyphenatedWord = randomWord.replace(/[a-zA-Z]/g, '_');
 
 
-hyphenatedArray = hyphenatedWord.split('');
-console.log(hyphenatedArray);
+// hyphenatedArray = hyphenatedWord.split('');
 
 //DISPLAY HYPHENATED WORD
-var tempHyphenatedWordDiv = document.getElementById("currentWord-div");
-tempHyphenatedWordDiv.textContent = hyphenatedArray.join(" ");
+// var tempHyphenatedWordDiv = document.getElementById("currentWord-div");
+// tempHyphenatedWordDiv.textContent = hyphenatedArray.join(" ");
 
 // DISPLAY THE WINS COUNTER
-var winsDiv = document.getElementById("wins-div");
+// var winsDiv = document.getElementById("wins-div");
 winsDiv.textContent = "Wins: " + wins;
 
 // DISPLAY THE GUESSES LEFT COUNTER
-var guessesLeftDiv = document.getElementById("guessesLeft-div");
-guessesLeftDiv.textContent = "Guesses Left: " + guessesLeft;
+// var guessesLeftDiv = document.getElementById("guessesLeft-div");
+// guessesLeftDiv.textContent = "Guesses Left: " + guessesLeft;
 
 // DISPLAY THE CURRENT GUESSES
-var guessesDiv = document.getElementById("guesses-div");
-guessesDiv.textContent = "Your Guesses so far: ";
+// var guessesDiv = document.getElementById("guesses-div");
+// guessesDiv.textContent = "Your Guesses so far: ";
+
+resetGame();
 
 // USER GUESSES LETTERS IN THE RANDOM WORD
 
@@ -68,7 +74,7 @@ guessesDiv.textContent = "Your Guesses so far: ";
             guessesLeftDiv.textContent = "Guesses Left: " + guessesLeft;
             
             //  DISPLAY ENTERED GUESSES
-            guessesDiv.textContent = "Your Guesses so far: " + guesses;
+            guessesDiv.textContent = "Your Guesses so far: " + guesses.join(" ");
             
             // CHECK THE RANDOM WORD FOR A CHARACTER MATCH
             for (let i = 0; i < wordArray.length; i++) {
