@@ -1,3 +1,14 @@
 .container {
     text-align: center;
 }
+
+.bond {
+    transform: rotate(-20deg);
+    font-family: 'Cantarell', sans-serif;
+    font-size: 25px;
+    margin: -10px 0px 25px 0px;
+}
+
+h1 {
+    font-family: 'Cantarell', sans-serif;
+}

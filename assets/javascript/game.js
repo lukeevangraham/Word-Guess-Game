@@ -16,6 +16,7 @@ var words = ["BLOFELD", "ODDJOB", "SPECTRE", "DALTON", "LICENSE", "VESPER", "SKY
 function resetGame() {
     guessesLeft = 12;
     guesses = [];
+    hyphenatedArray = [];
     randomWord = words[Math.floor(Math.random() * words.length)];
     wordArray = randomWord.split('')
     hyphenatedWord = randomWord.replace(/[a-zA-Z]/g, '_');
@@ -23,7 +24,6 @@ function resetGame() {
     tempHyphenatedWordDiv.textContent = hyphenatedArray.join(" ");
     guessesLeftDiv.textContent = "Guesses Left: " + guessesLeft;
     guessesDiv.textContent = "Your Guesses so far: ";
-    console.log(randomWord);
 }
 
 // APP RANDOMLY PICKS A WORD
