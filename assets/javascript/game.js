@@ -7,9 +7,9 @@ function resetGame() {
     guesses = [];
     randomWord = words[Math.floor(Math.random() * words.length)];
     wordArray = randomWord.split('')
-    hyphenatedWord = randomWord.replace(/[a-zA-Z]/g, '-');
-    tempHyphenatedWordDiv.textContent = hyphenatedWord;
+    hyphenatedWord = randomWord.replace(/[a-zA-Z]/g, '_');
     hyphenatedArray = hyphenatedWord.split('');
+    tempHyphenatedWordDiv.textContent = hyphenatedArray.join(" ");
     guessesLeftDiv.textContent = "Guesses Left: " + guessesLeft;
     guessesDiv.textContent = "Your Guesses so far: ";
     console.log(randomWord);
@@ -24,14 +24,17 @@ var words = ["BLOFELD", "ODDJOB", "SPECTRE", "DALTON", "LICENSE", "VESPER", "SKY
 var randomWord = words[Math.floor(Math.random() * words.length)];
 
 wordArray = randomWord.split('')
+console.log(wordArray);
 
-var hyphenatedWord = randomWord.replace(/[a-zA-Z]/g, '-');
+var hyphenatedWord = randomWord.replace(/[a-zA-Z]/g, '_');
+
+
+hyphenatedArray = hyphenatedWord.split('');
+console.log(hyphenatedArray);
 
 //DISPLAY HYPHENATED WORD
 var tempHyphenatedWordDiv = document.getElementById("currentWord-div");
-tempHyphenatedWordDiv.textContent = hyphenatedWord;
-
-hyphenatedArray = hyphenatedWord.split('');
+tempHyphenatedWordDiv.textContent = hyphenatedArray.join(" ");
 
 // DISPLAY THE WINS COUNTER
 var winsDiv = document.getElementById("wins-div");
@@ -78,7 +81,7 @@ guessesDiv.textContent = "Your Guesses so far: ";
                     newtempHyphenatedWordDiv.textContent = hyphenatedArray.join(" ");
 
                     // IF HYPHENATED ARRAY RUNS OUT OF HYPHENS
-                    var hyphenCheck = hyphenatedArray.includes("-");
+                    var hyphenCheck = hyphenatedArray.includes("_");
                     if (hyphenCheck === false) {
                         wins++;
                         winsDiv.textContent = "Wins: " + wins;
