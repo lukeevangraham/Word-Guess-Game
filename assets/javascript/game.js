@@ -35,33 +35,45 @@ guessesDiv.textContent = "Letters Already Guessed: ";
     document.onkeyup = function(event) {
     var userGuess = event.key;
     var upUserGuess = userGuess.toUpperCase();
-    guesses.push(upUserGuess);
 
-    // DECREASE GUESSLEFT COUNTER
-    guessesLeft--;
-    guessesLeftDiv.textContent = "Guesses Left: " + guessesLeft;
-
-    //  DISPLAY ENTERED GUESSES
-    guessesDiv.textContent = "Your Guesses so far: " + guesses;
-
-    // CHECK THE RANDOM WORD FOR A CHARACTER MATCH
-    for (let i = 0; i < wordArray.length; i++) {
-        if (upUserGuess === wordArray[i]) {
-            console.log("good one!");
-
-            hyphenatedArray[i] = randomWord[i];
-
-            console.log('update: ' + hyphenatedArray);
-
-            // DISPLAY REVEALED LETTERS
-            var newtempHyphenatedWordDiv = document.getElementById("currentWord-div");
-            newtempHyphenatedWordDiv.textContent = hyphenatedArray;
-
-
-        } else {
-            // hyphenatedArray[i] = '-';
+    console.log(upUserGuess);
+    console.log(guesses)
+    
+    // CONFIRM LETTER HAS NOT BEEN GUESSED
+        var newGuess = guesses.includes(upUserGuess);
+    if (newGuess === false) {
+    
             
-            console.log("nope");
+            // ADD TO GUESSES ARRAY
+            guesses.push(upUserGuess);
+            
+            // DECREASE GUESSLEFT COUNTER
+            guessesLeft--;
+            guessesLeftDiv.textContent = "Guesses Left: " + guessesLeft;
+            
+            //  DISPLAY ENTERED GUESSES
+            guessesDiv.textContent = "Your Guesses so far: " + guesses;
+            
+            // CHECK THE RANDOM WORD FOR A CHARACTER MATCH
+            for (let i = 0; i < wordArray.length; i++) {
+                if (upUserGuess === wordArray[i]) {
+                    console.log("good one!");
+                    
+                    hyphenatedArray[i] = randomWord[i];
+                    
+                    console.log('update: ' + hyphenatedArray);
+                    
+                    // DISPLAY REVEALED LETTERS
+                    var newtempHyphenatedWordDiv = document.getElementById("currentWord-div");
+                    newtempHyphenatedWordDiv.textContent = hyphenatedArray.join(" ");
+                    
+                    
+                } else {
+                    // hyphenatedArray[i] = '-';
+                    
+                    console.log("nope");
+                }
+            }
         }
-    }
-}
+        }
+    // }
