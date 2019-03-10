@@ -73,6 +73,18 @@ guessesDiv.textContent = "Your Guesses so far: ";
                     if (hyphenCheck === false) {
                         wins++;
                         winsDiv.textContent = "Wins: " + wins;
+
+                        // START NEW GAME
+                        guessesLeft = 12;
+                        guesses = [];
+                        randomWord = words[Math.floor(Math.random() * words.length)];
+                        wordArray = randomWord.split('')
+                        hyphenatedWord = randomWord.replace(/[a-zA-Z]/g, '-');
+                        tempHyphenatedWordDiv.textContent = hyphenatedWord;
+                        hyphenatedArray = hyphenatedWord.split('');
+                        guessesLeftDiv.textContent = "Guesses Left: " + guessesLeft;
+                        guessesDiv.textContent = "Your Guesses so far: ";
+                        console.log(randomWord);
                     }
                     
                     
