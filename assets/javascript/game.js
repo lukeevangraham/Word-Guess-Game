@@ -2,6 +2,20 @@ guessesLeft = 12;
 guesses = [];
 wins = 0;
 
+function resetGame() {
+    guessesLeft = 12;
+    guesses = [];
+    randomWord = words[Math.floor(Math.random() * words.length)];
+    wordArray = randomWord.split('')
+    hyphenatedWord = randomWord.replace(/[a-zA-Z]/g, '-');
+    tempHyphenatedWordDiv.textContent = hyphenatedWord;
+    hyphenatedArray = hyphenatedWord.split('');
+    guessesLeftDiv.textContent = "Guesses Left: " + guessesLeft;
+    guessesDiv.textContent = "Your Guesses so far: ";
+    console.log(randomWord);
+    
+}
+
 
 // LIST OF POSSIBLE WORDS
 var words = ["BLOFELD", "ODDJOB", "SPECTRE", "DALTON", "LICENSE", "VESPER", "SKYFALL", "GOLDFINGER", "MONEYPENNY"];
@@ -58,11 +72,8 @@ guessesDiv.textContent = "Your Guesses so far: ";
             // CHECK THE RANDOM WORD FOR A CHARACTER MATCH
             for (let i = 0; i < wordArray.length; i++) {
                 if (upUserGuess === wordArray[i]) {
-                    console.log("good one!");
                     
                     hyphenatedArray[i] = randomWord[i];
-                    
-                    console.log('update: ' + hyphenatedArray);
                     
                     // DISPLAY REVEALED LETTERS
                     var newtempHyphenatedWordDiv = document.getElementById("currentWord-div");
@@ -75,23 +86,15 @@ guessesDiv.textContent = "Your Guesses so far: ";
                         winsDiv.textContent = "Wins: " + wins;
 
                         // START NEW GAME
-                        guessesLeft = 12;
-                        guesses = [];
-                        randomWord = words[Math.floor(Math.random() * words.length)];
-                        wordArray = randomWord.split('')
-                        hyphenatedWord = randomWord.replace(/[a-zA-Z]/g, '-');
-                        tempHyphenatedWordDiv.textContent = hyphenatedWord;
-                        hyphenatedArray = hyphenatedWord.split('');
-                        guessesLeftDiv.textContent = "Guesses Left: " + guessesLeft;
-                        guessesDiv.textContent = "Your Guesses so far: ";
-                        console.log(randomWord);
+                        resetGame();
                     }
-                    
-                    
+  
                 } else {
-                    // hyphenatedArray[i] = '-';
-                    
-                    // console.log("nope");
+
+                    // IF GUESSES LEFT = 0
+                    if (guessesLeft === 0 ) {
+                        resetGame();
+                    }
                 }
             }
         }
