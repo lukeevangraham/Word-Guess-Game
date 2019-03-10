@@ -92,6 +92,13 @@ resetGame();
                         wins++;
                         winsDiv.textContent = "Wins: " + wins;
 
+                        // document.getElementById('audiotag1').play();
+
+
+                        var audio = new Audio('assets/007.mp3');
+                        audio.play();
+
+
                         // START NEW GAME
                         resetGame();
                     }
