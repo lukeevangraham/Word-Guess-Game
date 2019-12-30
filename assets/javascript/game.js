@@ -33,9 +33,9 @@ let Game = {
     tempHyphenatedWordDiv.textContent = hyphenatedArray.join(" ");
     guessesLeftDiv.textContent = "Guesses Left: " + guessesLeft;
     guessesDiv.textContent = "Your Guesses so far: ";
+    winsDiv.textContent = "Wins: " + wins;
   },
   afterInput: function(event) {
-      console.log("EVENT: ", event)
     var userGuess = event.key;
     var upUserGuess = userGuess.toUpperCase();
 
@@ -90,7 +90,7 @@ let Game = {
 
 // DISPLAY THE WINS COUNTER
 // var winsDiv = document.getElementById("wins-div");
-winsDiv.textContent = "Wins: " + wins;
+// winsDiv.textContent = "Wins: " + wins;
 
 Game.resetGame();
 
